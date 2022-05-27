@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.engeto.lekce11.GoodsMapper">
+<mapper namespace="com.engeto.lekce11.ItemMapper">
 
     <resultMap id="itemMap" type="com.engeto.lekce11.Item">
         <id property="id" column="id"></id>
@@ -17,8 +17,22 @@
         id, part_no, serial_no AS serialNo, name, description, number_in_stock AS numberInStock, price
     </sql>
 
-    <select id="loadItemById" resultType="Item" resultMap="itemMap">
+    <select id="loadItemById" parameterType="java.lang.Integer" resultType="Item" resultMap="itemMap">
         SELECT <include refid="itemParams"/>
-        FROM engeto.item WHERE id = #{id}
+        FROM engeto.item WHERE id = #{id}updatePrice
     </select>
+
+    <insert id="saveItem" >
+        INSERT INTO engeto.item (part_no,serial_no,name,description,number_in_stock,price)
+        VALUES (#{partNo},#{serialNo},#{name},#{description},#{numberInStock},#{price})
+    </insert>
+
+    <update id="updatePrice" parameterType="java.lang.Integer">
+        "UPDATE engeto.item set price = #{price} WHERE id = #{id}"
+    </update>
+
+    <delete id="deleteAllOutOfStockItems">
+        DELETE FROM engeto.item WHERE number_in_stock=0
+    </delete>
+
 </mapper>

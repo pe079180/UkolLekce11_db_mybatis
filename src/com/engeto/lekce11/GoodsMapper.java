@@ -8,7 +8,6 @@ import org.apache.ibatis.annotations.Update;
 import java.math.BigDecimal;
 import java.util.List;
 
-
 public interface GoodsMapper {
     Item loadItemById(Integer id);
     void deleteAllOutOfStockItems();

@@ -7,7 +7,7 @@
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
                 <property name="url" value="jdbc:mysql://localhost:3306/engeto"/>
                 <property name="username" value="test"/>
                 <property name="password" value="test"/>
@@ -15,6 +15,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="org/mybatis/example/ItemMapper.xml"/>
+        <mapper class="com.engeto.lekce11.ItemMapper" />
     </mappers>
 </configuration>

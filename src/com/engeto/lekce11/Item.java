@@ -29,7 +29,7 @@ public class Item {
                 ", serialNo='" + serialNo + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", numberInStock=" + numberInStock +
+                ", numberInStock=" + numberInStock + '\'' +
                 ", price=" + price +
                 '}' + '\n';
     }
