@@ -22,6 +22,11 @@
         FROM engeto.item WHERE id = #{id}updatePrice
     </select>
 
+    <select id="loadAllAvailableItems" resultMap="itemMap">
+        SELECT <include refid="itemParams"/>
+        FROM engeto.item WHERE id = #{id}updatePrice
+    </select>
+
     <insert id="saveItem" >
         INSERT INTO engeto.item (part_no,serial_no,name,description,number_in_stock,price)
         VALUES (#{partNo},#{serialNo},#{name},#{description},#{numberInStock},#{price})

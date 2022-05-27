@@ -22,6 +22,10 @@ public class Main {
             ItemMapper itemMapper = session.getMapper(ItemMapper.class);
             List<Item>  items= itemMapper.loadAllAvailableItems();
 
+            // 2 metoda s xml
+            //GoodsMapper goodsMapper = session.getMapper(GoodsMapper.class);
+            //List<Item>  items= goodsMapper.loadAllAvailableItems();
+
             for (Item item : items) {
                 System.out.println(item);
             }
